@@ -29,8 +29,4 @@ public class Cliente {
 	
 	@Column(name = "sd_cliente")
 	private double saldoCliente;
-	
-	@OneToOne
-	@JoinColumn(name = "fk_id_conta")
-	private Conta conta;
 }
