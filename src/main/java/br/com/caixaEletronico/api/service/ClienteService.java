@@ -14,9 +14,8 @@ public class ClienteService {
 	private ClienteRepository clienteRepository;
 
 	public void cadastraCliente(DadosClienteEntrada dadosClienteEntrada) {
-		Cliente cliente;
 		
-		cliente = new Cliente(
+		 Cliente cliente = new Cliente(
 				dadosClienteEntrada.getCpfCliente(),
 				dadosClienteEntrada.getNomeCliente(),
 				dadosClienteEntrada.getSaldoCliente()

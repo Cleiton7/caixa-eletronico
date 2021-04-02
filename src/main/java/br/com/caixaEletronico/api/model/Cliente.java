@@ -9,34 +9,37 @@ import javax.persistence.Table;
 
 import com.sun.istack.NotNull;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "TB_CLIENTE")
+@Builder(toBuilder = true)
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cliente {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_cliente")
 	private Long idCliente;
 	
 	@NotNull
-	@Column(name = "cpf_cliente")
+	@Column(name = "cpf_cliente", length = 11)
 	private String cpfCliente;
 	
 	@NotNull
-	@Column(name = "nm_cliente")
+	@Column(name = "nm_cliente", length = 50)
 	private String nomeCliente;
 	
 	@NotNull
-	@Column(name = "sd_cliente")
+	@Column(name = "sd_cliente", length = 14)
 	private double saldoCliente;
-	
-	public Cliente() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	public Cliente(String cpfCliente, String nomeCliente, double saldoCliente) {
 		super();
