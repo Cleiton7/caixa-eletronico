@@ -2,21 +2,14 @@ package br.com.caixaEletronico.api.DTO;
 
 public class DadosClienteSaida {
 	
-	private String cpfCliente;
-	private String nomeCliente;
+	private Long idCliente;
 	private double saldoCliente;
 	
-	public String getCpfCliente() {
-		return cpfCliente;
+	public Long getIdCliente() {
+		return idCliente;
 	}
-	public void setCpfCliente(String cpfCliente) {
-		this.cpfCliente = cpfCliente;
-	}
-	public String getNomeCliente() {
-		return nomeCliente;
-	}
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+	public void setIdCliente(Long idCliente) {
+		this.idCliente = idCliente;
 	}
 	public double getSaldoCliente() {
 		return saldoCliente;
@@ -25,10 +18,9 @@ public class DadosClienteSaida {
 		this.saldoCliente = saldoCliente;
 	}
 	
-	public DadosClienteSaida(String cpfCliente, String nomeCliente, double saldoCliente) {
+	public DadosClienteSaida(Long idCliente, double saldoCliente) {
 		super();
-		this.cpfCliente = cpfCliente;
-		this.nomeCliente = nomeCliente;
+		this.idCliente = idCliente;
 		this.saldoCliente = saldoCliente;
 	}
 }
