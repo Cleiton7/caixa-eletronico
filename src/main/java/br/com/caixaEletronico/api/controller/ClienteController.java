@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.caixaEletronico.api.DTO.DadosClienteEntrada;
 import br.com.caixaEletronico.api.DTO.DadosClienteSaida;
-import br.com.caixaEletronico.api.service.ClienteService;
+import br.com.caixaEletronico.api.service.BuscaSaldoService;
+import br.com.caixaEletronico.api.service.CadastraClienteService;
 
 
 @RestController
@@ -21,7 +22,10 @@ import br.com.caixaEletronico.api.service.ClienteService;
 public class ClienteController {
 
 	@Autowired
-	private ClienteService clienteService;
+	private CadastraClienteService clienteService;
+	
+	@Autowired
+	private BuscaSaldoService saldoService;
 	
 	@PostMapping(path = "/cadastrar")
 	public void cadastraCliente(@Valid @RequestBody DadosClienteEntrada dadosClienteEntrada) {
@@ -30,7 +34,7 @@ public class ClienteController {
 	
 	@GetMapping(path = "/{id}")
 	public DadosClienteSaida buscaSaldoCliente(@PathVariable Long id) {
-		DadosClienteSaida dadosCliente = clienteService.buscaSaldo(id);
+		DadosClienteSaida dadosCliente = saldoService.buscaSaldo(id);
 		return dadosCliente;
 	}
 }
