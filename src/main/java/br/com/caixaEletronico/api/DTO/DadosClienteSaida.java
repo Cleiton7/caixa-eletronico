@@ -1,26 +1,16 @@
 package br.com.caixaEletronico.api.DTO;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class DadosClienteSaida {
 	
 	private Long idCliente;
 	private double saldoCliente;
-	
-	public Long getIdCliente() {
-		return idCliente;
-	}
-	public void setIdCliente(Long idCliente) {
-		this.idCliente = idCliente;
-	}
-	public double getSaldoCliente() {
-		return saldoCliente;
-	}
-	public void setSaldoCliente(double saldoCliente) {
-		this.saldoCliente = saldoCliente;
-	}
-	
-	public DadosClienteSaida(Long idCliente, double saldoCliente) {
-		super();
-		this.idCliente = idCliente;
-		this.saldoCliente = saldoCliente;
-	}
 }

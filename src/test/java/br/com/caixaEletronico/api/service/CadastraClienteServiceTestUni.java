@@ -27,7 +27,7 @@ class CadastraClienteServiceTestUni {
 	private ArgumentCaptor<Cliente> captor;
 	
 	@Mock
-	ClienteRepository clienteRespository;
+	ClienteRepository clienteRepository;
 	
 	@Mock
 	DadosClienteEntrada dadosClienteEntrada;
@@ -45,7 +45,7 @@ class CadastraClienteServiceTestUni {
 		
 		clienteService.cadastraCliente(clienteEntrada);
 		
-		Mockito.verify(clienteRespository).save(captor.capture());
+		Mockito.verify(clienteRepository).save(captor.capture());
 		
 		Cliente cliente = captor.getValue();
 		

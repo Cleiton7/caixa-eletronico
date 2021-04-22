@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.caixaEletronico.api.DTO.DadosClienteEntrada;
 import br.com.caixaEletronico.api.DTO.DadosClienteSaida;
+import br.com.caixaEletronico.api.DTO.DadosClienteSaqueEntrada;
+import br.com.caixaEletronico.api.DTO.DadosClienteSaqueSaida;
 import br.com.caixaEletronico.api.service.BuscaSaldoService;
 import br.com.caixaEletronico.api.service.CadastraClienteService;
+import br.com.caixaEletronico.api.service.EfetuaSaqueService;
 
 
 @RestController
@@ -27,6 +30,9 @@ public class ClienteController {
 	@Autowired
 	private BuscaSaldoService saldoService;
 	
+	@Autowired
+	private EfetuaSaqueService saqueService;
+	
 	@PostMapping(path = "/cadastrar")
 	public void cadastraCliente(@Valid @RequestBody DadosClienteEntrada dadosClienteEntrada) {
 		clienteService.cadastraCliente(dadosClienteEntrada);
@@ -35,6 +41,12 @@ public class ClienteController {
 	@GetMapping(path = "/{id}")
 	public DadosClienteSaida buscaSaldoCliente(@PathVariable Long id) {
 		DadosClienteSaida dadosCliente = saldoService.buscaSaldo(id);
+		return dadosCliente;
+	}
+	
+	@PostMapping(path = "/{id}/sacar")
+	public DadosClienteSaqueSaida efetuaSaque(@Valid @RequestBody DadosClienteSaqueEntrada dadosClienteSaqueEntrada, @PathVariable Long id) {
+		DadosClienteSaqueSaida dadosCliente = saqueService.efetuaSaque(dadosClienteSaqueEntrada, id);
 		return dadosCliente;
 	}
 }
